@@ -1,0 +1,293 @@
+/**
+ * Category Navigation Styles for arXiv CS Daily
+ */
+
+/* Category Navigation Container */
+.category-nav-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #dee2e6;
+    margin-bottom: 1.5rem;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #6c757d #f8f9fa;
+}
+
+.category-nav-container::-webkit-scrollbar {
+    height: 6px;
+}
+
+.category-nav-container::-webkit-scrollbar-track {
+    background: #f8f9fa;
+    border-radius: 3px;
+}
+
+.category-nav-container::-webkit-scrollbar-thumb {
+    background: #6c757d;
+    border-radius: 3px;
+}
+
+.category-nav-container::-webkit-scrollbar-thumb:hover {
+    background: #495057;
+}
+
+/* Category Buttons */
+.category-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: 2px solid #e9ecef;
+    border-radius: 50px;
+    background-color: #fff;
+    color: #495057;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.category-btn:hover {
+    border-color: #adb5bd;
+    background-color: #f8f9fa;
+    color: #212529;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.category-btn.active {
+    border-color: #0d6efd;
+    background-color: #0d6efd;
+    color: white;
+    box-shadow: 0 2px 8px rgba(13, 110, 253, 0.25);
+}
+
+.category-btn.active:hover {
+    border-color: #0b5ed7;
+    background-color: #0b5ed7;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+}
+
+/* Category button content */
+.category-code {
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+.category-name {
+    font-size: 0.85rem;
+    opacity: 0.9;
+}
+
+.category-btn.active .category-name {
+    opacity: 1;
+}
+
+/* Category Info Container */
+.category-info-container {
+    animation: fadeIn 0.3s ease;
+}
+
+.category-info-card {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border: 1px solid #dee2e6;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.category-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    color: #212529;
+    font-weight: 600;
+}
+
+.category-badge {
+    background: #0d6efd;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 4px rgba(13, 110, 253, 0.2);
+}
+
+.category-stats {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.result-count {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.1rem;
+    color: #495057;
+    font-weight: 500;
+}
+
+.result-count i {
+    color: #0d6efd;
+    font-size: 1.2rem;
+}
+
+/* Data Source Indicator */
+.data-source-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.data-source-live {
+    background-color: rgba(25, 135, 84, 0.1);
+    color: #198754;
+    border: 1px solid rgba(25, 135, 84, 0.2);
+}
+
+.data-source-cached {
+    background-color: rgba(255, 193, 7, 0.1);
+    color: #ffc107;
+    border: 1px solid rgba(255, 193, 7, 0.2);
+}
+
+.data-source-sample {
+    background-color: rgba(108, 117, 125, 0.1);
+    color: #6c757d;
+    border: 1px solid rgba(108, 117, 125, 0.2);
+}
+
+.data-source-unknown {
+    background-color: rgba(220, 53, 69, 0.1);
+    color: #dc3545;
+    border: 1px solid rgba(220, 53, 69, 0.2);
+}
+
+.data-source-indicator i {
+    font-size: 1rem;
+}
+
+/* Loading Indicator */
+.loading-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #6c757d;
+    font-size: 0.95rem;
+}
+
+.loading-indicator .spinner-border {
+    width: 1rem;
+    height: 1rem;
+    border-width: 0.15em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .category-nav-container {
+        gap: 0.4rem;
+        padding: 0.75rem 0;
+    }
+    
+    .category-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+    
+    .category-info-card {
+        padding: 1rem;
+    }
+    
+    .category-title {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .category-stats {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+    
+    .category-name {
+        display: none !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .category-nav-container {
+        padding-bottom: 0.5rem;
+    }
+    
+    .category-btn {
+        padding: 0.35rem 0.7rem;
+        font-size: 0.85rem;
+    }
+    
+    .category-code {
+        font-size: 0.8rem;
+    }
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Active State Animation */
+.category-btn.active {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(13, 110, 253, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 6px rgba(13, 110, 253, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(13, 110, 253, 0);
+    }
+}
+
+/* Hover Effects for Data Source Indicator */
+.data-source-indicator:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Print Styles */
+@media print {
+    .category-nav-container {
+        display: none;
+    }
+    
+    .category-info-card {
+        border: 1px solid #000;
+        box-shadow: none;
+        background: none;
+    }
+}

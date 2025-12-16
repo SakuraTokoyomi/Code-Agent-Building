@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category Manager Test - arXiv CS Daily</title>
+    
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- Category Styles -->
+    <link rel="stylesheet" href="css/categories.css">
+    
+    <style>
+        body {
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .test-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #0d6efd;
+        }
+        
+        .test-header h1 {
+            color: #0d6efd;
+            font-weight: 600;
+        }
+        
+        .test-header .badge {
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+        }
+        
+        .test-section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #0d6efd;
+        }
+        
+        .test-section h3 {
+            color: #495057;
+            margin-bottom: 1rem;
+        }
+        
+        .log-container {
+            background: #212529;
+            color: #e9ecef;
+            padding: 1rem;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            max-height: 300px;
+            overflow-y: auto;
+            margin-top: 1rem;
+        }
+        
+        .log-entry {
+            padding: 0.25rem 0;
+            border-bottom: 1px solid #495057;
+        }
+        
+        .log-entry.info {
+            color: #0dcaf0;
+        }
+        
+        .log-entry.success {
+            color: #198754;
+        }
+        
+        .log-entry.warning {
+            color: #ffc107;
+        }
+        
+        .log-entry.error {
+            color: #dc3545;
+        }
+        
+        .controls {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        
+        .controls .btn {
+            min-width: 120px;
+        }
+        
+        .demo-info {
+            background: #e7f1ff;
+            border: 1px solid #b6d4fe;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .demo-info h4 {
+            color: #0a58ca;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <div class="test-header">
+            <h1>Category Manager Test</h1>
+            <p class="lead">Testing the Category Navigation System for arXiv CS Daily</p>
+            <span class="badge bg-primary">Task T4</span>
+            <span class="badge bg-success">Complete</span>
+        </div>
+        
+        <div class="test-section">
+            <h3>Category Navigation Bar</h3>
+            <p>Click on any category button to test the navigation system:</p>
+            
+            <!-- Category Navigation Container -->
+            <div id="category-nav"></div>
+            
+            <!-- Category Info Display -->
+            <div id="category-info-display"></div>
+        </div>
+        
+        <div class="test-section">
+            <h3>Test Controls</h3>
+            <div class="controls">
+                <button id="btn-test-change" class="btn btn-primary">
+                    <i class="bi bi-arrow-repeat"></i> Simulate Category Change
+                </button>
+                <button id="btn-test-loading" class="btn btn-warning">
+                    <i class="bi bi-hourglass-split"></i> Test Loading State
+                </button>
+                <button id="btn-test-reset" class="btn btn-secondary">
+                    <i class="bi bi-arrow-counterclockwise"></i> Reset to Default
+                </button>
+                <button id="btn-test-data-source" class="btn btn-info">
+                    <i class="bi bi-database"></i> Cycle Data Source
+                </button>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h3>Event Log</h3>
+            <p>Category change events and actions will be logged here:</p>
+            <div class="log-container" id="event-log">
+                <div class="log-entry info">[INFO] Category Manager initialized</div>
+                <div class="log-entry info">[INFO] Current category: cs.* (All Computer Science)</div>
+            </div>
+        </div>
+        
+        <div class="demo-info">
+            <h4>Implementation Details</h4>
+            <ul>
+                <li><strong>Categories:</strong> 11 arXiv CS categories with proper mapping</li>
+                <li><strong>Active State:</strong> Visual feedback with animations</li>
+                <li><strong>URL Management:</strong> Updates hash for bookmarking</li>
+                <li><strong>Pagination Reset:</strong> Automatically resets to start=0 on category change</li>
+                <li><strong>Loading States:</strong> Shows loading indicator during fetches</li>
+                <li><strong>Data Source:</strong> Tracks live/cached/sample data sources</li>
+                <li><strong>Responsive Design:</strong> Works on mobile and desktop</li>
+                <li><strong>Error Handling:</strong> Graceful degradation if elements not found</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- jQuery 3.7 -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    
+    <!-- Bootstrap 5.3 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Category Manager -->
+    <script src="js/category-manager.js"></script>
+    
+    <script>
+        // Initialize Category Manager
+        const categoryManager = new CategoryManager();
+        
+        // Log function
+        function logEvent(message, type = 'info') {
+            const logContainer = document.getElementById('event-log');
+            const logEntry = document.createElement('div');
+            logEntry.className = `log-entry ${type}`;
+            logEntry.textContent = `[${type.toUpperCase()}] ${new Date().toLocaleTimeString()} - ${message}`;
+            logContainer.appendChild(logEntry);
+            logContainer.scrollTop = logContainer.scrollHeight;
+        }
+        
+        // Render category navigation
+        categoryManager.render('category-nav');
+        
+        // Set up category change callback
+        categoryManager.setCategoryChangeCallback((categoryCode, displayName) => {
+            logEvent(`Category changed to: ${categoryCode} (${displayName})`, 'success');
+            
+            // Simulate API call delay
+            setTimeout(() => {
+                // Update result count with random number
+                const randomCount = Math.floor(Math.random() * 1000) + 100;
+                categoryManager.updateResultCount(randomCount);
+                logEvent(`Loaded ${randomCount} papers for ${displayName}`, 'info');
+            }, 800);
+        });
+        
+        // Test button handlers
+        document.getElementById('btn-test-change').addEventListener('click', () => {
+            const categories = categoryManager.getAllCategories();
+            const randomIndex = Math.floor(Math.random() * categories.length);
+            const randomCategory = categories[randomIndex];
+            
+            // Simulate click on random category
+            const buttons = document.querySelectorAll('.category-btn');
+            const targetButton = Array.from(buttons).find(btn => 
+                btn.dataset.category === randomCategory.code
+            );
+            
+            if (targetButton) {
+                targetButton.click();
+                logEvent(`Testing random category: ${randomCategory.code}`, 'warning');
+            }
+        });
+        
+        document.getElementById('btn-test-loading').addEventListener('click', () => {
+            categoryManager.showLoading();
+            logEvent('Showing loading state...', 'warning');
+            
+            // Auto-hide after 2 seconds
+            setTimeout(() => {
+                categoryManager.updateResultCount(425);
+                categoryManager.updateDataSource('live');
+                logEvent('Loading complete, showing results', 'success');
+            }, 2000);
+        });
+        
+        document.getElementById('btn-test-reset').addEventListener('click', () => {
+            // Reset to default category
+            const buttons = document.querySelectorAll('.category-btn');
+            const allCSButton = Array.from(buttons).find(btn => 
+                btn.dataset.category === 'cs.*'
+            );
+            
+            if (allCSButton) {
+                allCSButton.click();
+                logEvent('Reset to default category (cs.*)', 'info');
+            }
+        });
+        
+        document.getElementById('btn-test-data-source').addEventListener('click', () => {
+            const sources = ['live', 'cached', 'sample'];
+            const currentSource = document.querySelector('.data-source-indicator')?.textContent || '';
+            let nextSource;
+            
+            if (currentSource.includes('Live')) nextSource = 'cached';
+            else if (currentSource.includes('Cached')) nextSource = 'sample';
+            else nextSource = 'live';
+            
+            categoryManager.updateDataSource(nextSource);
+            logEvent(`Data source changed to: ${nextSource}`, 'info');
+        });
+        
+        // Initial log
+        logEvent('Test page loaded successfully', 'success');
+        
+        // Simulate initial load
+        setTimeout(() => {
+            categoryManager.updateResultCount(1247);
+            categoryManager.updateDataSource('live');
+            logEvent('Initial data loaded: 1,247 papers from arXiv', 'success');
+        }, 1000);
+    </script>
+</body>
+</html>
