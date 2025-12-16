@@ -157,6 +157,22 @@ Code-Agent/
     └── execution_log.json
 ```
 
+**Note about `output/` and `logs/` folders:**
+The `output/` and `logs/` folders currently in this repository contain test results generated using the DeepSeek API. These are provided as reference examples to demonstrate the system's capabilities.
+
+**For TAs/Reviewers:** If you want to test the system with your own API and generate fresh results:
+1. Delete the existing `output/` and `logs/` folders:
+   ```bash
+   rm -rf output/ logs/
+   ```
+2. Configure your API credentials in `.env` file
+3. Run the system with your own task:
+   ```bash
+   python main.py --task "Your task description"
+   ```
+
+The system will automatically recreate these folders with new results from your API calls.
+
 ## 🔧 Configuration
 
 Edit `config.py` to customize:
