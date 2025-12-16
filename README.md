@@ -399,8 +399,7 @@ COMP7103C Course Assignment Project
 ## 📧 Contact
 
 For questions about this project:
-- TA: Zongwei Li (zongwei9888@gmail.com)
-- TA: Yangqin Jiang (mrjiangyq99@gmail.com)
+- Tokoyomi(1271231341@qq.com)
 
 ## 🙏 Acknowledgments
 
