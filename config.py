@@ -36,7 +36,8 @@ LLM_CONFIGS = {
 }
 
 # Default LLM provider to use
-DEFAULT_PROVIDER = "deepseek"
+DEFAULT_PROVIDER = "custom"
+
 
 # Agent Configuration
 AGENT_CONFIG = {

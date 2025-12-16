@@ -22,9 +22,13 @@ class LLMClient:
             api_key=config["api_key"],
             base_url=config["base_url"],
             timeout=120.0,  # 增加超时时间到120秒
-            max_retries=2   # 限制重试次数为2次，避免无限重试
+            max_retries=2,   # 限制重试次数为2次，避免无限重试
+            default_headers={
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36",
+            }
         )
         self.model = config["model"]
+        # print(config["api_key"],config["base_url"],config["model"])
         self.logger = logging.getLogger("LLMClient")
 
     def chat_completion(

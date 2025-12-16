@@ -32,12 +32,10 @@ ENV/
 # Logs
 *.log
 
-# Output
-*.json
-
 # IDE
 .vscode/
 .idea/
+.claude/
 *.swp
 *.swo
 *~

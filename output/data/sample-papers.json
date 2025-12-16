@@ -1,0 +1,43 @@
+{
+    "papers": [
+        {
+            "id": "2306.12345",
+            "title": "Advances in Machine Learning: A Comprehensive Survey",
+            "authors": ["Jane Smith", "John Doe"],
+            "summary": "This paper provides a comprehensive overview of recent advancements in machine learning techniques, focusing on deep learning and neural network architectures.",
+            "published": "2023-06-22T10:30:00Z",
+            "links": {
+                "pdf": "https://arxiv.org/pdf/2306.12345.pdf",
+                "abs": "https://arxiv.org/abs/2306.12345"
+            },
+            "categories": ["cs.LG", "cs.AI"]
+        },
+        {
+            "id": "2306.12346",
+            "title": "Quantum Computing: Emerging Paradigms",
+            "authors": ["Alice Johnson", "Bob Williams"],
+            "summary": "An exploration of quantum computing principles and their potential applications in solving complex computational problems.",
+            "published": "2023-06-21T15:45:00Z",
+            "links": {
+                "pdf": "https://arxiv.org/pdf/2306.12346.pdf",
+                "abs": "https://arxiv.org/abs/2306.12346"
+            },
+            "categories": ["cs.IT", "cs.DC"]
+        },
+        {
+            "id": "2306.12347",
+            "title": "Natural Language Processing: Transformer Models",
+            "authors": ["Charlie Brown", "David Miller"],
+            "summary": "A deep dive into transformer architectures and their revolutionary impact on natural language processing tasks.",
+            "published": "2023-06-20T09:15:00Z",
+            "links": {
+                "pdf": "https://arxiv.org/pdf/2306.12347.pdf",
+                "abs": "https://arxiv.org/abs/2306.12347"
+            },
+            "categories": ["cs.CL", "cs.AI"]
+        }
+    ],
+    "total_results": 3,
+    "category": "cs.AI",
+    "timestamp": "2023-06-22T12:00:00Z"
+}
